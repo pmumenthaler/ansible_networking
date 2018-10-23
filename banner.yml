@@ -5,8 +5,12 @@
   gather_facts: no
 
   vars:
-    banner_message: Authorized Access only! Property of FinTech Inc.
-
+    # multine banners need to use ios_banner - otherwise it fails - at least until now :-) 
+    #banner_message:  | 
+    #  ^Property of FinTech Inc.
+    #  No unauthorized access
+    #  Violators will be prosecuted^
+    banner_message:  This is a single line banner
   tasks:
 
   - name: "Update banner message to {{ banner_message }}"
