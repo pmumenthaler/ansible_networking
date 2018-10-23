@@ -1,0 +1,13 @@
+---
+- name: simple route commands
+  hosts: routers
+  gather_facts: no
+  connection: network_cli
+    
+- name: set banner
+  import_playbook: banner.yml
+- name: gre tunneling
+  import_playbook: gre.yml
+- name: create routes
+  import_playbook: router-config.yml
+...

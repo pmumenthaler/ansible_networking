@@ -1,0 +1,18 @@
+- name: multiline banner
+  hosts: routers
+  gather_facts: no
+  connection: network_cli
+
+  vars: 
+    banner_message: | 
+      Property of FinTech Inc.
+      No unauthorized access
+      Violators will be prosecuted
+
+  tasks:
+  
+  - name: configure the login banner
+    ios_banner:
+      banner: motd
+      text: "{{ banner_message }}"
+      state: present
